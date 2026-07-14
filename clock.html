@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: transparent;
+      color: #0B2A55;
+    }
+    .clock-card {
+      width: 260px;
+      height: 70px;
+      border: 1px solid #D9E6F7;
+      border-radius: 12px;
+      background: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10px 16px;
+      box-sizing: border-box;
+    }
+    .label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #4B647D;
+      margin-bottom: 4px;
+    }
+    .time {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0B63CE;
+      line-height: 1;
+    }
+    .date {
+      font-size: 11px;
+      color: #667085;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="clock-card">
+    <div class="label">Current Site Time</div>
+    <div class="time" id="time">--:--:--</div>
+    <div class="date" id="date">Loading...</div>
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+
+      const time = new Intl.DateTimeFormat("en-GB", {
+        timeZone: "Asia/Jakarta",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+      }).format(now);
+
+      const date = new Intl.DateTimeFormat("en-GB", {
+        timeZone: "Asia/Makassar",
+        weekday: "short",
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+      }).format(now);
+
+      document.getElementById("time").textContent = time + " WIB";
+      document.getElementById("date").textContent = date;
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
