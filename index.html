@@ -13,42 +13,48 @@
       width: 120px;
       height: 45px;
       border: 1px solid #c9d9ee;
-      border-radius: 12px;
+      border-radius: 8px;
       background: #ffffff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.10);
       box-sizing: border-box;
-      padding: 10px 14px;
+      padding: 5px 8px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      overflow: hidden;
     }
 
     .label {
-      font-size: 10px;
+      font-size: 7px;
       color: #4b5d73;
-      font-weight: 400;
-      margin-bottom: 2px;
+      font-weight: 600;
+      line-height: 1;
+      margin-bottom: 3px;
+      white-space: nowrap;
     }
 
     .time {
-      font-size: 18px;
-      font-weight: 500;
+      font-size: 16px;
+      font-weight: 700;
       color: #1565d8;
-      line-height: 1.1;
-      margin-bottom: 4px;
+      line-height: 1;
+      margin-bottom: 3px;
+      white-space: nowrap;
+      letter-spacing: -0.4px;
     }
 
     .date {
-      font-size: 11px;
+      font-size: 7px;
       color: #5d6b7a;
-      line-height: 1.2;
+      line-height: 1;
+      white-space: nowrap;
     }
   </style>
 </head>
 <body>
   <div class="clock-card">
-    <div class="label">Current Site Time</div>
-    <div class="time" id="time">--:--:-- WIB</div>
+    <div class="label">Site Time</div>
+    <div class="time" id="time">--:--:--</div>
     <div class="date" id="date">Loading...</div>
   </div>
 
@@ -66,7 +72,6 @@
 
       const date = new Intl.DateTimeFormat("en-GB", {
         timeZone: "Asia/Jakarta",
-        weekday: "short",
         day: "2-digit",
         month: "short",
         year: "numeric"
