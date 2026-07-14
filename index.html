@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+      width: 120px;
+      height: 45px;
       background: transparent;
       font-family: Arial, sans-serif;
+      overflow: hidden;
     }
 
     .clock-card {
@@ -15,47 +19,55 @@
       border: 1px solid #c9d9ee;
       border-radius: 8px;
       background: #ffffff;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.12);
       box-sizing: border-box;
-      padding: 5px 8px;
+      padding: 4px 6px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
       overflow: hidden;
     }
 
-    .label {
-      font-size: 7px;
-      color: #4b5d73;
-      font-weight: 600;
-      line-height: 1;
-      margin-bottom: 3px;
+    .time-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      width: 100%;
       white-space: nowrap;
+      line-height: 1;
     }
 
     .time {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
       color: #1565d8;
-      line-height: 1;
-      margin-bottom: 3px;
-      white-space: nowrap;
       letter-spacing: -0.4px;
+    }
+
+    .zone {
+      font-size: 9px;
+      font-weight: 700;
+      color: #1565d8;
+      margin-left: 3px;
     }
 
     .date {
       font-size: 7px;
       color: #5d6b7a;
       line-height: 1;
+      margin-top: 4px;
       white-space: nowrap;
     }
   </style>
 </head>
 <body>
   <div class="clock-card">
-    <div class="label">Site Time</div>
-    <div class="time" id="time">--:--:--</div>
-    <div class="date" id="date">Loading...</div>
+    <div class="time-row">
+      <span class="time" id="time">--:--:--</span>
+      <span class="zone">WIB</span>
+    </div>
+    <div class="date" id="date">-- --- ----</div>
   </div>
 
   <script>
@@ -77,7 +89,7 @@
         year: "numeric"
       }).format(now);
 
-      document.getElementById("time").textContent = time + " WIB";
+      document.getElementById("time").textContent = time;
       document.getElementById("date").textContent = date;
     }
 
