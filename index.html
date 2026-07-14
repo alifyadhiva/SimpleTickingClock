@@ -5,45 +5,50 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
       background: transparent;
-      color: #0B2A55;
+      font-family: Arial, sans-serif;
     }
+
     .clock-card {
-      width: 260px;
-      height: 70px;
-      border: 1px solid #D9E6F7;
+      width: 240px;
+      height: 90px;
+      border: 1px solid #c9d9ee;
       border-radius: 12px;
-      background: #FFFFFF;
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      box-sizing: border-box;
+      padding: 10px 14px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 10px 16px;
-      box-sizing: border-box;
     }
+
     .label {
-      font-size: 12px;
+      font-size: 11px;
+      color: #4b5d73;
       font-weight: 600;
-      color: #4B647D;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
+
     .time {
       font-size: 24px;
       font-weight: 700;
-      color: #0B63CE;
-      line-height: 1;
+      color: #1565d8;
+      line-height: 1.1;
+      margin-bottom: 4px;
     }
+
     .date {
       font-size: 11px;
-      color: #667085;
-      margin-top: 4px;
+      color: #5d6b7a;
+      line-height: 1.2;
     }
   </style>
 </head>
 <body>
   <div class="clock-card">
-    <div class="label">Current Time</div>
-    <div class="time" id="time">--:--:--</div>
+    <div class="label">Current Site Time</div>
+    <div class="time" id="time">--:--:-- WIB</div>
     <div class="date" id="date">Loading...</div>
   </div>
 
@@ -60,7 +65,7 @@
       }).format(now);
 
       const date = new Intl.DateTimeFormat("en-GB", {
-        timeZone: "Asia/Makassar",
+        timeZone: "Asia/Jakarta",
         weekday: "short",
         day: "2-digit",
         month: "short",
